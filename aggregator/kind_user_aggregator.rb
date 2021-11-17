@@ -42,9 +42,7 @@ class KindUserAggregator
   end
 
   def top_user_reacted(users)
-    top_user_reacted = []
-    users.first(3).each { |user| top_user_reacted.push(user) }
-    top_user_reacted
+    top_user_reacted = users.first(3)
   end
 
   def load(channel_name)

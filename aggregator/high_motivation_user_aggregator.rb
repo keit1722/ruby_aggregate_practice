@@ -32,8 +32,7 @@ class HighMotivationUserAggregator
   end
 
   def top_lists(lists)
-    top_lists = []
-    lists.first(3).each { |_list| top_lists.push(lists) }
+    top_lists = lists.first(3)
   end
 
   def load(channel_name)

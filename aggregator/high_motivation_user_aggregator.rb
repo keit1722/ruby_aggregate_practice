@@ -13,7 +13,8 @@ class HighMotivationUserAggregator
   def exec
     channel_messages_count_lists =
       get_channel_messages_count_lists(@channel_names)
-    top_lists(sort_lists(channel_messages_count_lists))
+
+    sort_lists(channel_messages_count_lists).first(3)
   end
 
   def get_channel_messages_count_lists(channel_names)
@@ -29,10 +30,6 @@ class HighMotivationUserAggregator
 
   def sort_lists(lists)
     lists.sort { |a, b| b[:message_count] <=> a[:message_count] }
-  end
-
-  def top_lists(lists)
-    top_lists = lists.first(3)
   end
 
   def load(channel_name)
